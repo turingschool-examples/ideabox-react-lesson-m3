@@ -15,11 +15,9 @@ export default class CreateIdea extends Component {
     }
   }
 
-  // DRY
-
   inputChange(e, field){
-    let callback = () => console.log(this.state)
-    this.setState({[field]: e.target.value}, callback)
+    // more on controlled components: https://facebook.github.io/react/docs/forms.html
+    this.setState({[field]: e.target.value})
   }
 
 
@@ -31,11 +29,11 @@ export default class CreateIdea extends Component {
     return (
       <div>
         <label>Title</label>
-        <input type='text' onChange={(e) => this.inputChange(e, 'title')}/>
+        <input type='text' value={this.state.title} onChange={(e) => this.inputChange(e, 'title')}/>
         <br />
         <br />
         <label>Body</label>
-        <textarea onChange={(e) => this.inputChange(e, 'body')}/>
+        <textarea value={this.state.body} onChange={(e) => this.inputChange(e, 'body')}/>
         <br />
         <br />
         <button onClick={() => this.submitIdea()}>Submit</button>
