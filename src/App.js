@@ -3,9 +3,16 @@ import './App.css';
 import CreateIdea from './CreateIdea';
 
 class App extends Component {
-  addIdea() {
-    console.log('Cupcake?')
-    console.log(this)
+  constructor() {
+    super()
+    this.state = {
+      ideas: []
+    }
+  }
+
+  addIdea(idea) {
+    this.state.ideas.push(idea)
+    this.setState(this.state)
   }
 
   render() {

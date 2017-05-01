@@ -22,7 +22,11 @@ export default class CreateIdea extends Component {
 
 
   submitIdea(){
-    this.props.handleSubmit()
+    this.props.handleSubmit(this.state)
+    // is actually the addIdea function from App
+    // but named handleSubmit when passed as props
+    // clear input fields
+    this.setState({title: '', body: ''})
   }
 
   render() {
